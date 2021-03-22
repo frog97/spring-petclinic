@@ -52,6 +52,11 @@ class OwnerController {
 		this.visits = visits;
 	}
 
+	// assignment .. inject PetRepository to this Class.
+	// @Autowired private PetRepository petRepository;
+	// or add to constructor param.
+	// or add @Autowired to setter.
+
 
 //	case 2. attach autowired annotation on variables.
 //	below variables can be linked by Autowired not by constructors
