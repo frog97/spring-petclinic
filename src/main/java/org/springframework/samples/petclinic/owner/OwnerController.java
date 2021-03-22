@@ -15,6 +15,7 @@
  */
 package org.springframework.samples.petclinic.owner;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.visit.VisitRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,6 +42,7 @@ class OwnerController {
 
 	private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
 
+	// Case 1. org
 	private final OwnerRepository owners;
 
 	private VisitRepository visits;
@@ -49,6 +51,30 @@ class OwnerController {
 		this.owners = clinicService;
 		this.visits = visits;
 	}
+
+
+//	case 2. attach autowired annotation on variables.
+//	below variables can be linked by Autowired not by constructors
+//	@Autowired
+//	private OwnerRepository owners;
+//
+//	@Autowired
+//	private VisitRepository visits;
+
+
+
+	// case 3. attach autowire on setter.
+//	private OwnerRepository owners;
+//	private VisitRepository visits;
+//
+//	@Autowired
+//	public void setOwners(OwnerRepository owners) {
+//		this.owners = owners;
+//	}
+//	@Autowired
+//	public void setVisits(VisitRepository visits) {
+//		this.visits = visits;
+//	}
 
 	@InitBinder
 	public void setAllowedFields(WebDataBinder dataBinder) {
